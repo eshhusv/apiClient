@@ -11,7 +11,7 @@
             <ColumnDefinition Width="500"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <ListView x:Name="ListSell" Grid.Column="0" Margin="10" FontSize="20">
+        <ListView x:Name="ListSell" Grid.Column="0" Margin="10" FontSize="20" SelectionChanged="ListSell_SelectionChanged">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -27,12 +27,14 @@
         </ListView>
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
+                <RowDefinition Height="1.5*"/>
+                <RowDefinition Height="1.5*"/>
+                <RowDefinition Height="1.5*"/>
+                <RowDefinition Height="1.5*"/>
+                <RowDefinition Height="1.5*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <StackPanel Orientation="Vertical" Grid.Row="0" Margin="5">
                 <Label Content="Введите название"/>
@@ -40,7 +42,7 @@
             </StackPanel>
             <StackPanel Orientation="Vertical" Grid.Row="1" Margin="5">
                 <Label Content="Введите дату продажи"/>
-                <TextBox x:Name="SellingDateSell"/>
+                <DatePicker x:Name="SellingDateSell"/>
             </StackPanel>
             <StackPanel Orientation="Vertical" Grid.Row="2" Margin="5">
                 <Label Content="Введите число проданных товаров"/>
@@ -54,7 +56,9 @@
                 <Label Content="Введите venor code"/>
                 <TextBox x:Name="VenorCodeSell"/>
             </StackPanel>
-            <Button Name="ButtonSell" Content="Сохранить" Grid.Row="5" Margin="20 10" Click="Button_Click"/>
+            <Button Name="ButtonChangeSell" Content="Изменить" Grid.Row="5" Margin="20 10" Click="Button_Click"/>
+            <Button Name="ButtonSell" Content="Сохранить" Grid.Row="6" Margin="20 10" Click="Button_Click"/>
+            <Button Name="ButtonDeleteSell" Content="Удалить" Grid.Row="7" Margin="20 10"/>
         </Grid>
     </Grid>
 </Window>

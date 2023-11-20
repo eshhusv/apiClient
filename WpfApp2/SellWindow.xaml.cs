@@ -41,10 +41,50 @@ namespace WpfApp2
                 ListSell.ItemsSource = list;
             });
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private async Task Save()
         {
+            Sell sell = new Sell
+            {
+                Name = NameSell.Text,
+                SellingDate = Convert.ToDateTime(SellingDateSell.Text),
+                CountOfSold = Convert.ToInt32(CountOfSoldSell.Text),
+                PriceOfSold = Convert.ToDouble(PriceOfSoldSell.Text),
+                VenorCode = Convert.ToInt32(VenorCodeSell.Text)
+            };
+            JsonContent content = JsonContent.Create(sell);
+            using var response = await httpClient.PostAsync("http://localhost:5054/api/Sell", content);
+            string responseText = await response.Content.ReadAsStringAsync();
+            await Load();
+        }
+        private async Task Edit()
+        {
+            sell!.Name = NameSell.Text;
+            sell!.SellingDate = Convert.ToDateTime(SellingDateSell.Text);
+            sell!.PriceOfSold = Convert.ToDouble(PriceOfSoldSell.Text);
+            sell!.CountOfSold = Convert.ToInt32(CountOfSoldSell.Text);
+            sell!.VenorCode = Convert.ToInt32(VenorCodeSell.Text);
+            JsonContent content = JsonContent.Create(sell);
+            using var response = await httpClient.PostAsync("http://localhost:5054/api/Sell", content);
+            string responseText = await response.Content.ReadAsStringAsync();
+            await Load();
+        }
+        private async Task Delete()
+        {
+            using var response = await httpClient.DeleteAsync("http://localhost:5054/api/Sell/" + sell?.Id);
+            string responseText = await response.Content.ReadAsStringAsync();
+            await Load();
+        }
 
+        private async void Button_Click(object sender, RoutedEventArgs e)
+        {
+            await Save();
+        }
+
+        private void ListSell_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            sell = ListSell.SelectedItem as Sell;
+            sell!.Name = NameSell.Text;
+            sell!.SellingDate = Convert.ToDateTime(SellingDateSell.Text);
         }
     }
 }

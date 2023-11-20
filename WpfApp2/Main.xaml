@@ -28,7 +28,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Button Content="Гойда" Margin="10 80" Click="Button_Click"/>
-            <Button Content="Гойда" Margin="10 80" Grid.Row="1"/>
+            <Button Content="Гойда" Margin="10 80" Grid.Row="1" Click="Button_Click_1"/>
         </Grid>
     </Grid>
 </Window>

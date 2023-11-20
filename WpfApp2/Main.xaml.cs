@@ -53,5 +53,11 @@ namespace WpfApp2
             SellWindow sellWindow = new SellWindow(token);
             sellWindow.ShowDialog();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            ProductWindow productWindow = new ProductWindow(token!);
+            productWindow.ShowDialog();
+        }
     }
 }
