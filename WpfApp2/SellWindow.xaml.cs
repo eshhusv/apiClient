@@ -85,6 +85,9 @@ namespace WpfApp2
             sell = ListSell.SelectedItem as Sell;
             sell!.Name = NameSell.Text;
             sell!.SellingDate = Convert.ToDateTime(SellingDateSell.Text);
+            sell!.PriceOfSold = Convert.ToDouble(PriceOfSoldSell.Text);
+            sell!.CountOfSold = Convert.ToInt32(CountOfSoldSell.Text);
+            sell!.VenorCode = Convert.ToInt32(VenorCodeSell.Text);
         }
     }
 }

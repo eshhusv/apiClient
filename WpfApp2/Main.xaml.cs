@@ -32,7 +32,7 @@ namespace WpfApp2
             token = response.access_token;
             Task.Run(() => Load());
         }
-        private async Task Load()
+        public async Task Load()
         {
             List<Admission>? list = await httpClient.GetFromJsonAsync<List<Admission>>("http://localhost:5054/api/Admission");
             int i = 0;
@@ -54,10 +54,25 @@ namespace WpfApp2
             sellWindow.ShowDialog();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private async void Button_Click_1(object sender, RoutedEventArgs e)
         {
             ProductWindow productWindow = new ProductWindow(token!);
-            productWindow.ShowDialog();
+            if (productWindow.ShowDialog() == true)
+            {
+                Sell sell = new Sell
+                {
+                    Id = await productWindow.getIdAdmission(),
+                    SellingDate = productWindow.SellingDateProperty,
+                    Name = productWindow.NameProperty,
+                    CountOfSold = productWindow.CountOfSoldProperty,
+                    PriceOfSold = productWindow.PriceOfSoldProperty,
+                    VenorCode = productWindow.VenorCodeProperty
+                };
+                JsonContent content = JsonContent.Create(sell);
+                using var response = await httpClient.PostAsync("http://localhost:5054/api/Sell", content);
+                string responseText = await response.Content.ReadAsStringAsync();
+                await Load();
+            }
         }
     }
 }

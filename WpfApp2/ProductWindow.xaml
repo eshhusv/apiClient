@@ -12,19 +12,37 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0">
             <Label Content="Введите название"/>
             <TextBox x:Name="Name" Height="40" Margin="20 10"/>
         </StackPanel>
         <StackPanel Grid.Row="1">
-            <Label Content="Введите название"/>
-            <TextBox x:Name="Price" Height="40" Margin="20 10"/>
+            <Label Content="Введите id"/>
+            <ComboBox x:Name="cbGroup" Height="40" Margin="20 10"/>
         </StackPanel>
         <StackPanel Grid.Row="2">
-            <Label Content="Введите название"/>
+            <Label Content="Введите цену проданного товара"/>
+            <TextBox x:Name="PriceOfSold" Height="40" Margin="20 10"/>
+        </StackPanel>
+        <StackPanel Grid.Row="3">
+            <Label Content="Введите weiner code"/>
             <TextBox x:Name="VenorCode" Height="40" Margin="20 10"/>
         </StackPanel>
-        <Button x:Name="SaveProduct" Content="Сохранить" Grid.Row="3" Margin="50 25"/>
+        <StackPanel Grid.Row="4">
+            <Label Content="Введите дату продажи"/>
+            <DatePicker x:Name="SellingDate" Height="40" Margin="20 10"/>
+        </StackPanel>
+        <StackPanel Grid.Row="5">
+            <Label Content="Введите кол-во проданного товара"/>
+            <TextBox x:Name="CountOfSold" Height="40" Margin="20 10"/>
+        </StackPanel>
+        <StackPanel Grid.Row="6" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button x:Name="SaveProduct" Content="Сохранить" Grid.Row="3" Margin="30 5" Click="SaveProduct_Click"/>
+            <Button x:Name="CancelProduct" Content="Отменить" Grid.Row="3" Margin="30 5" Click="CancelProduct_Click"/>
+        </StackPanel>
     </Grid>
 </Window>
