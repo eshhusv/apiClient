@@ -58,7 +58,7 @@ namespace WpfApp2
         public DateTime SellingDateProperty
         {
             get { return  DateTime.Parse(SellingDate.Text); }
-        }
+        } 
         public async Task<int> getIdAdmission()
         {
             Admission? admission = await client.GetFromJsonAsync<Admission>("http://localhost:5054/api/Admission/" + cbGroup.Text);
