@@ -63,6 +63,7 @@ namespace WpfApp2
         {
             Admission? admission = await client.GetFromJsonAsync<Admission>("http://localhost:5054/api/Admission/" + cbGroup.Text);
             return admission!.VenorCode;
+            //
         }
 
         private void SaveProduct_Click(object sender, RoutedEventArgs e)
