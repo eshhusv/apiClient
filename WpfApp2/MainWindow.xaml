@@ -17,8 +17,8 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBox x:Name="login" Grid.Row="0" Grid.Column="1" Margin="10"/>
-        <TextBox x:Name="password" Grid.Row="1" Grid.Column="1" Margin="10"/>
-        <Button x:Name="Button" Grid.Row="2" Grid.Column="1" Margin="10" Content="ZZZ" Click="Button_Click"/>
+        <TextBox x:Name="login" Grid.Row="0" Grid.Column="1" Margin="10" Text="Z@gmail.com"/>
+        <PasswordBox x:Name="password" Grid.Row="1" Grid.Column="1" Margin="10" Password="123" />
+        <Button Grid.Row="2" Grid.Column="1" Margin="10" Content="ZZZ" Click="Button_Click"/>
     </Grid>
 </Window>

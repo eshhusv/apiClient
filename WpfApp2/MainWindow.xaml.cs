@@ -34,7 +34,7 @@ namespace WpfApp2
         {
             try
             {
-                User user = new User { EMail = login.Text, Password = password.Text };
+                User user = new User { EMail = login.Text, Password = password.Password };
                 JsonContent content = JsonContent.Create(user);
                 using var response = await client.PostAsync("http://localhost:5054/login", content);
                 string responseText = await response.Content.ReadAsStringAsync();

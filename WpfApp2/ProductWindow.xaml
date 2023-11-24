@@ -29,7 +29,7 @@
             <TextBox x:Name="PriceOfSold" Height="40" Margin="20 10"/>
         </StackPanel>
         <StackPanel Grid.Row="3">
-            <Label Content="Введите weiner code"/>
+            <Label Content="Введите venor code"/>
             <TextBox x:Name="VenorCode" Height="40" Margin="20 10"/>
         </StackPanel>
         <StackPanel Grid.Row="4">
